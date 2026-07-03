@@ -23,7 +23,7 @@ jobs:
 
     - name: Bygg usignert iOS app-pakke for ekte iPhone
       run: |
-        flutter build ios --no-codesign --release --code-sign-identity="" --code-signing-required=NO CODE_SIGNING_ALLOWED=NO
+        flutter build ios --no-codesign --release -- CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO
 
     - name: Konverter til IPA for Sideloadly
       run: |
