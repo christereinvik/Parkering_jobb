@@ -21,13 +21,14 @@ jobs:
     - name: Installer avhengigheter
       run: flutter pub get
 
-    - name: Bygg usignert iOS app-pakke via simulator-arkitektur
-      run: flutter build ios --simulator --no-codesign --debug
+    - name: Bygg usignert iOS app-pakke for ekte iPhone
+      run: |
+        flutter build ios --no-codesign --release --code-sign-identity="" --code-signing-required=NO CODE_SIGNING_ALLOWED=NO
 
     - name: Konverter til IPA for Sideloadly
       run: |
         mkdir -p Payload
-        mv build/ios/iphonesimulator/Runner.app Payload/
+        mv build/ios/iphoneos/Runner.app Payload/
         zip -r ios-release.ipa Payload
 
     - name: Last opp IPA-fil til GitHub Artifacts
