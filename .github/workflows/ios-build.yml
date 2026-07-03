@@ -22,7 +22,7 @@ jobs:
       run: flutter pub get
 
     - name: Bygg usignert iOS app-pakke via simulator-arkitektur
-      run: flutter build ios --simulator --no-codesign --release
+      run: flutter build ios --simulator --no-codesign --debug
 
     - name: Konverter til IPA for Sideloadly
       run: |
