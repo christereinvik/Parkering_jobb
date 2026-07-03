@@ -98,19 +98,22 @@ class _MyAppState extends State<MyApp> {
   }
 
   Future<void> _sendNotification(String title, String body) async {
+    const String customSoundFile = 'alarm.mp3';
     const DarwinNotificationDetails iosDetails = DarwinNotificationDetails(
       presentAlert: true,
       presentSound: true,
       presentBadge: true,
+      sound: customSoundFile,
+      interruptionLevel: InterruptionLevel.timeSensitive, 
     );
     
     const NotificationDetails platformDetails = NotificationDetails(iOS: iosDetails);
     
     await flutterLocalNotificationsPlugin.show(
-      DateTime.now().millisecond,
-      title,
-      body,
-      platformDetails,
+      id: DateTime.now().millisecond,
+      title: title,
+      body: body,
+      notificationDetails: platformDetails,
     );
   }
 
