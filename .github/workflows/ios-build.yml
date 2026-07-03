@@ -21,11 +21,11 @@ jobs:
     - name: Installer avhengigheter
       run: flutter pub get
 
-    - name: Bygg usignert iOS app-pakke for ekte iPhone i Debug-modus
+    - name: Bygg usignert iOS app-pakke for ekte iPhone i Profile-modus
       env:
         CODE_SIGNING_ALLOWED: "NO"
         CODE_SIGNING_REQUIRED: "NO"
-      run: flutter build ios --no-codesign --debug
+      run: flutter build ios --no-codesign --profile
 
     - name: Konverter til IPA for Sideloadly
       run: |
