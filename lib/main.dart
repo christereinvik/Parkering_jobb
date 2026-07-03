@@ -110,10 +110,10 @@ class _MyAppState extends State<MyApp> {
     const NotificationDetails platformDetails = NotificationDetails(iOS: iosDetails);
     
     await flutterLocalNotificationsPlugin.show(
-      id: DateTime.now().millisecond,
-      title: title,
-      body: body,
-      notificationDetails: platformDetails,
+      DateTime.now().millisecond,
+      title,
+      body,
+      platformDetails,
     );
   }
 
